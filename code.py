@@ -1,9 +1,6 @@
 from telebot import TeleBot
-from dotenv import load_dotenv
-import os
 
-load_dotenv()
-bot = TeleBot(token=os.getenv('TOKEN'))
+bot = TeleBot(token=open('s3_token.txt', 'r').read())
 
 
 @bot.message_handler(commands=['start'])
