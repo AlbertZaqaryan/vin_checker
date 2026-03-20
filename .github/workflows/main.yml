@@ -35,7 +35,7 @@ jobs:
           cd /home/${{ secrets.EC2_USER }}/app
           unzip -o app.zip
         
-          aws s3 cp s3://${{ secrets.S3_NAME }}/${{ secrets.S3_TOKEN_NAME }} ./s3_token.txt
+          aws s3 cp s3://${{ secrets.S3_NAME }}/${{ secrets.S3_TOKEN_NAME }} /home/ubuntu/app/s3_token.txt
         
           echo "CHECK FILE:"
           ls -la
