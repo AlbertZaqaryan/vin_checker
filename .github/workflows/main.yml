@@ -30,9 +30,15 @@ jobs:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
         key: ${{ secrets.EC2_SSH_KEY }}
+        
         script: |
           cd /home/${{ secrets.EC2_USER }}/app
           unzip -o app.zip
+        
+          aws s3 cp s3://${{ secrets.S3_NAME }}/${{ secrets.S3_TOKEN_NAME }} ./s3_token.txt
+        
+          echo "CHECK FILE:"
+          ls -la
 
           # ✅ Установка AWS CLI (если нет)
           sudo apt update -y
