@@ -47,9 +47,9 @@ jobs:
           aws s3 cp s3://${{ secrets.S3_NAME }}/${{ secrets.S3_TOKEN_NAME }} ./s3_token.txt
 
           # ✅ Docker build уже с файлом
-          docker stop vin_bot || true
-          docker rm vin_bot || true
+          sudo docker stop vin_bot || true
+          sudo docker rm vin_bot || true
 
-          docker build -t vin_bot .
+          sudo docker build -t vin_bot .
 
-          docker run -d --name vin_bot vin_bot
+          sudo docker run -d --name vin_bot vin_bot
