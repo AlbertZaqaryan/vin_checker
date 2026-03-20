@@ -51,7 +51,7 @@ jobs:
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
           cd ~/app
-          docker stop vin_bot || true
-          docker rm vin_bot || true
-          docker load < vin_checker.tar
-          docker run -d --name vin_bot --env-file .env vin_checker
+          sudo docker stop vin_bot || true
+          sudo docker rm vin_bot || true
+          sudo docker load < vin_checker.tar
+          sudo docker run -d --name vin_bot --env-file .env vin_checker
